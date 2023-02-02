@@ -44,6 +44,14 @@ spec:
               name: accounts-db-config
           - configMapRef:
               name: demo-data-config
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          capabilities:
+            drop:
+              - NET_RAW
+          seccompProfile:
+            type: RuntimeDefault
         ports:
           - containerPort: 5432
             name: postgredb

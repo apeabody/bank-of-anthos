@@ -52,6 +52,14 @@ spec:
             - name: postgresdb
               mountPath: /var/lib/postgresql/data
               subPath: postgres
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+            capabilities:
+              drop:
+                - NET_RAW
+            seccompProfile:
+              type: RuntimeDefault
       volumes:
         - name: postgresdb
           emptyDir: {}

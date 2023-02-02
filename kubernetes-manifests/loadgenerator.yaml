@@ -46,6 +46,8 @@ spec:
               - all
           privileged: false
           readOnlyRootFilesystem: true
+          seccompProfile:
+            type: RuntimeDefault
         image: gcr.io/bank-of-anthos-ci/loadgenerator:v0.5.10
         env:
         - name: FRONTEND_ADDR
